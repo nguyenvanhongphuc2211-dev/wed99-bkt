@@ -2,8 +2,7 @@ import crypto from "node:crypto";
 import bcrypt from "bcrypt";
 import User from "../models/user.model.js";
 
-const buildApiKey = (userId, email) => {
-  const randomstring = crypto.randomUUID();
+const buildApiKey = (userId, email, randomstring) => {
   return `mern-$${userId}$-$${email}$-$${randomstring}$`;
 };
 
@@ -76,7 +75,9 @@ export const login = async (req, res) => {
       return res.status(401).json({ message: "Mật khẩu không đúng" });
     }
 
-    const apiKey = buildApiKey(user._id.toString(), user.email);
+    const randomstring = crypto.randomUUID();
+    const apiKey = buildApiKey(user._id.toString(), user.email, randomstring);
+    user.randomstring = randomstring;
     user.apiKey = apiKey;
     await user.save();
 

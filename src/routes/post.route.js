@@ -5,7 +5,7 @@ import {
   getPosts,
   updatePost,
 } from "../controllers/post.controller.js";
-import { checkApiKey } from "../middlewares/auth.middleware.js";
+import { checkApiKey } from "../middlewares/user.middleware.js";
 
 const postRouter = Router();
 

@@ -23,6 +23,11 @@ const userSchema = new mongoose.Schema({
     unique: true,
     sparse: true,
   },
+  randomstring: {
+    type: String,
+    unique: true,
+    sparse: true,
+  },
 });
 
 const User = mongoose.model("user", userSchema, "user");
