@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chia sẻ bài viết</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">WED99 · Chia sẻ bài viết</div>
+      <div id="user-box" class="user-box" hidden>
+        <span id="current-user"></span>
+        <button id="logout-btn" type="button">Đăng xuất</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="auth-section" class="card">
+        <div class="tabs">
+          <button id="tab-login" class="tab active" type="button">Đăng nhập</button>
+          <button id="tab-register" class="tab" type="button">Đăng ký</button>
+        </div>
+
+        <form id="login-form">
+          <label>
+            Email
+            <input name="email" type="email" required placeholder="ban@email.com" />
+          </label>
+          <label>
+            Mật khẩu
+            <input name="password" type="password" required placeholder="Mật khẩu" />
+          </label>
+          <p id="login-error" class="error"></p>
+          <button type="submit">Đăng nhập</button>
+        </form>
+
+        <form id="register-form" hidden>
+          <label>
+            Tên người dùng
+            <input name="userName" type="text" required placeholder="Tên hiển thị" />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" required placeholder="ban@email.com" />
+          </label>
+          <label>
+            Mật khẩu
+            <input name="password" type="password" required minlength="6" placeholder="Ít nhất 6 ký tự" />
+          </label>
+          <p id="register-error" class="error"></p>
+          <button type="submit">Tạo tài khoản</button>
+        </form>
+      </section>
+
+      <section id="feed-section" hidden>
+        <form id="post-form" class="card composer">
+          <label>
+            Bạn đang nghĩ gì?
+            <textarea name="content" rows="3" required placeholder="Viết bài chia sẻ..."></textarea>
+          </label>
+          <p id="post-error" class="error"></p>
+          <button type="submit">Đăng bài</button>
+        </form>
+        <div id="post-list" class="post-list"></div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
